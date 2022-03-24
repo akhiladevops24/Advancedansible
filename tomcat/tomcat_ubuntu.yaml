@@ -40,7 +40,7 @@
       unarchive:
         src: "{{ tomcat_download_location }}"
         dest: "{{ tomcat_install_path }}"
-        force: yes
+        
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: Create link
       file:
@@ -49,4 +49,4 @@
         owner: "{{ username }}"
         group: "{{ username }}"
         state: link
-        force: yes
+        
