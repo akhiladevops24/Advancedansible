@@ -36,12 +36,6 @@
         url: "{{ tomcat_download_source }}"
         dest: "{{ tomcat_download_location }}"
       when: ansible_facts['distribution'] == "Ubuntu"
-    - name: Change file ownership, group and permissions
-      file:
-        path: "{{ tomcat_download_location }}"
-        owner: "{{ username }}"
-        group: "{{ username }}"
-        mode: '0644'    
     - name: extract tomcat
       unarchive:
         remote_src: "{{ tomcat_download_location }}"
