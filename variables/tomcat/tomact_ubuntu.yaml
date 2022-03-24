@@ -8,4 +8,11 @@
         name: openjdk-8-jdk
         update_cache: yes
         state: present  
-      when: ansible_facts['distribution'] == "Ubuntu"     
+      when: ansible_facts['distribution'] == "Ubuntu" 
+    - name: install tomcat      
+      user: 
+        name: tomcat
+        home: /opt/tomcat
+        group: tomcat 
+        shell: /bin/false
+        state: present
