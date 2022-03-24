@@ -2,21 +2,28 @@
 - name:  install tomcat on ubuntu
   hosts: appserver
   become: yes
+  vars:
+     username: tomact
+     java_package: openjdk-8-jdk
   vars_files:
      - vars/tomcat_ubuntu_var.yaml
 
   tasks:
     - name: install java
       apt:
-        name: openjdk-8-jdk
+        name: "{{java_package}}"
         update_cache: yes
         state: present  
       when: ansible_facts['distribution'] == "Ubuntu" 
+    - name: create group
+      group:
+        name: "{{username}}"
+        state: present
     - name: install tomcat      
       user: 
-        name: tomcat
+        name: "{{username}}"
         home: "{{tomcat_install_path}}"
-        group: tomcat 
+        group: "{{username}}"
         shell: /bin/false
         state: present
       when: ansible_facts['distribution'] == "Ubuntu"  
