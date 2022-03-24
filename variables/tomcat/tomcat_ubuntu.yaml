@@ -3,8 +3,7 @@
   hosts: appserver
   become: yes
   vars_files:
-          
-    -vars/tomcat_ubuntu_var.yaml
+     - vars/tomcat_ubuntu_var.yaml
 
   tasks:
     - name: install java
