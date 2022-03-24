@@ -3,7 +3,7 @@
   hosts: appserver
   become: yes
   vars:
-     username: tomact
+     username: tomcat
      java_package: openjdk-8-jdk
      unzip_package: unzip
   vars_files:
