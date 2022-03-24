@@ -3,7 +3,7 @@ localhost
 172.31.40.82
 
 [ubuntu]
-172.31.45.98 ansible_user=devops  ansible_ssh_password=devops
+172.31.45.98 ansible_user=devops  
 
 [appserver]
 172.31.45.98
