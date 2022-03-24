@@ -39,6 +39,7 @@
     - name: extract tomcat
       unarchive:
         remote_src: "{{ tomcat_download_location }}"
+        src: "{{ tomcat_download_location }}"
         dest: "{{ tomcat_install_path }}"
         
       when: ansible_facts['distribution'] == "Ubuntu"
