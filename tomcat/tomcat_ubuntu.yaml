@@ -33,7 +33,14 @@
         state: present
       when: ansible_facts['distribution'] == "Ubuntu" 
     - name: Go to the folder
-      command: chdir=/tmp ls  
+      command: chdir=/tmp ls 
+    - name: Change file ownership, group and permissions
+      ansible.builtin.file:
+       path: "{{ tomcat_download_location }}"
+       owner: "{{ username }}"
+       group: "{{ username }}"
+       mode: '777'  
+   
     - name: download tomcat
       get_url:
         url: https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.77/bin/apache-tomcat-8.5.77.zip
