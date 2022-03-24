@@ -39,7 +39,7 @@
 
     - name: Change file ownership, group and permissions
       ansible.builtin.file:
-       path: /etc/foo.conf
+       path: "{{ tomcat_download_location }}"
        owner: "{{ username }}"
        group: "{{ username }}"
        mode: '+rwx'  
