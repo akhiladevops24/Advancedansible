@@ -49,4 +49,9 @@
         owner: "{{ username }}"
         group: "{{ username }}"
         state: link
-        
+    - name: Change file ownership, group and permissions
+  ansible.builtin.file:
+    path: /opt/tomcat/apache-tomcat-8.5.77
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: '0644'   
