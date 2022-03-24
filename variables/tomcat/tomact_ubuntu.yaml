@@ -23,7 +23,7 @@
          dest:  /tmp/apache-tomcat-8.5.37.zip
       when: ansible_facts['distribution'] == "Ubuntu"  
     - name: unzip /opt/tomcat
-      unarcheive:
+      unarchive:
          src:  /tmp/apache-tomcat-8.5.37.zip
          dest: /opt/tomcat 
       when: ansible_facts['distribution'] == "Ubuntu"    
