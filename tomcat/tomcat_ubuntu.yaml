@@ -36,7 +36,7 @@
       command: chdir=/tmp ls  
     - name: download tomcat
       get_url:
-        url: "{{ tomcat_download_source }}"
+        url: https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.77/bin/apache-tomcat-8.5.77.zip
         dest: "{{ tomcat_download_location }}"
       when: ansible_facts['distribution'] == "Ubuntu"
     
