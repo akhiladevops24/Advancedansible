@@ -43,7 +43,7 @@
          dest: "{{tomcat_install_path}}"
       when: ansible_facts['distribution'] == "Ubuntu"    
     - name: Create link
-      files:
+      file:
         src: /opt/tomcat/apache-tomcat-8.5.77  
         dest: /opt/tomcat/latest
         owner: "{{username}}"
