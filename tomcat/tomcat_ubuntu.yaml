@@ -51,7 +51,7 @@
         state: link
     - name: Change file ownership, group and permissions
       file:
-        path: /opt/tomcat/apache-tomcat-8.5.77
+        path: "{{ tomcat_download_location }}"
         owner: "{{ username }}"
         group: "{{ username }}"
         mode: '0644'   
