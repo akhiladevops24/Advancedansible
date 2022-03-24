@@ -1,6 +1,6 @@
 ---
 - name: installing tomcat
-  hosts: appserver
+  hosts: ubuntu
   become: yes
   vars:
     username: tomcat
