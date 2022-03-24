@@ -5,6 +5,7 @@
   vars:
      username: tomact
      java_package: openjdk-8-jdk
+     unzip_package: unzip
   vars_files:
      - vars/tomcat_ubuntu_var.yaml
 
@@ -27,6 +28,10 @@
         shell: /bin/false
         state: present
       when: ansible_facts['distribution'] == "Ubuntu"  
+    - name: ensure unzip package in present
+      package: 
+        name: "{{unzip_package}}"
+        state: present  
     - name: download tomcat
       get_url:
          url: "{{tomcat_download_source}}"
