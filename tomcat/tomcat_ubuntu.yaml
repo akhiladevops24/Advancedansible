@@ -7,7 +7,7 @@
     java_package: openjdk-8-jdk
     unzip_package: unzip
   vars_files:
-    - vars/tomcat_ubuntu_vars.yaml
+    - vars/tomcat_ubuntu_var.yaml
   tasks:
     - name: install java on ubuntu
       apt:
