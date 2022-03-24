@@ -36,9 +36,15 @@
         url: "{{ tomcat_download_source }}"
         dest: "{{ tomcat_download_location }}"
       when: ansible_facts['distribution'] == "Ubuntu"
+
+    - name: Change file ownership, group and permissions
+      ansible.builtin.file:
+       path: /etc/foo.conf
+       owner: "{{ username }}"
+       group: "{{ username }}"
+       mode: '+rwx'  
     - name: extract tomcat
       unarchive:
-        remote_src: "{{ tomcat_download_location }}"
         src: "{{ tomcat_download_location }}"
         dest: "{{ tomcat_install_path }}"
         
