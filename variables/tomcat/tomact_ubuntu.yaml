@@ -2,6 +2,12 @@
 - name:  install tomcat on ubuntu
   hosts: appserver
   become: yes
+  vars:
+          
+    tomcat_download_source: "https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.77/bin/apache-tomcat-8.5.77.zip"
+    tomcat_download_location:  "/tmp/apache-tomcat-8.5.77.zip"
+    tomcat_install_path: "/opt/tomcat"
+
   tasks:
     - name: install java
       apt:
@@ -12,18 +18,18 @@
     - name: install tomcat      
       user: 
         name: tomcat
-        home: /opt/tomcat
+        home: "{{tomcat_install_path}}"
         group: tomcat 
         shell: /bin/false
         state: present
       when: ansible_facts['distribution'] == "Ubuntu"  
     - name: download tomcat
       get_url:
-         url: "https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.77/bin/apache-tomcat-8.5.77.zip"
-         dest:  "/tmp/apache-tomcat-8.5.77.zip"
+         url: "{{tomcat_download_source}}"
+         dest: "{{tomcat_download_location}}"
       when: ansible_facts['distribution'] == "Ubuntu"  
     - name: unzip /opt/tomcat
       unarchive:
-         src:  /tmp/apache-tomcat-8.5.77.zip
-         dest: /opt/tomcat 
+         src:  "{{tomcat_download_location}}"
+         dest: "{{tomcat_install_path}}"
       when: ansible_facts['distribution'] == "Ubuntu"    
