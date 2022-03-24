@@ -19,8 +19,8 @@
       when: ansible_facts['distribution'] == "Ubuntu"  
     - name: download tomcat
       get_url:
-         url: https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.77/bin/apache-tomcat-8.5.77.zip
-         dest:  /tmp/apache-tomcat-8.5.77.zip
+         url: "https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.77/bin/apache-tomcat-8.5.77.zip"
+         dest:  "/tmp/apache-tomcat-8.5.77.zip"
       when: ansible_facts['distribution'] == "Ubuntu"  
     - name: unzip /opt/tomcat
       unarchive:
