@@ -1,4 +1,4 @@
 ---
-tomcat_download_source: "https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.77/bin/apache-tomcat-8.5.77.zip"
-tomcat_download_location: "/tmp/apache-tomcat-8.5.77.zip"
+tomcat_download_source: "https://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.60/bin/apache-tomcat-9.0.60.zip"
+tomcat_download_location: "/tmp/apache-tomcat-9.0.60.zip"
 tomcat_install_path: "/opt/tomcat"

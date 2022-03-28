@@ -1,6 +1,6 @@
 ---
 - name: installing tomcat
-  hosts: ubuntu
+  hosts: appserver
   become: yes
   vars:
     username: tomcat
@@ -31,33 +31,24 @@
       package:
         name: "{{ unzip_package }}"
         state: present
-      when: ansible_facts['distribution'] == "Ubuntu" 
-    - name: Go to the folder
-      command: chdir=/tmp ls 
-    - name: Change file ownership, group and permissions
-      ansible.builtin.file:
-       path: "{{ tomcat_download_location }}"
-       owner: "{{ username }}"
-       group: "{{ username }}"
-       mode: '777'  
-   
     - name: download tomcat
       get_url:
-        url: https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.77/bin/apache-tomcat-8.5.77.zip
+        url: "{{ tomcat_download_source }}"
         dest: "{{ tomcat_download_location }}"
       when: ansible_facts['distribution'] == "Ubuntu"
-    
     - name: extract tomcat
       unarchive:
+        remote_src: yes
         src: "{{ tomcat_download_location }}"
         dest: "{{ tomcat_install_path }}"
       when: ansible_facts['distribution'] == "Ubuntu"
+      notify:
+        - Create link
+  handlers:
     - name: Create link
       file:
-        src: /opt/tomcat/apache-tomcat-8.5.77
+        src: /opt/tomcat/apache-tomcat-9.0.60
         dest: /opt/tomcat/latest
         owner: "{{ username }}"
         group: "{{ username }}"
         state: link
-      when: ansible_facts['distribution'] == "Ubuntu"  
-     
