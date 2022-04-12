@@ -2,7 +2,7 @@
 localhost
 172.31.0.205
 
-[tomcat]
+[ubuntu]
 172.31.3.244 
 
 [appserver]

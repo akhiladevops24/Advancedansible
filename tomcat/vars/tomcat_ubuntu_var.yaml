@@ -1,4 +1,4 @@
 ---
-tomcat_download_source: "https://downloads.apache.org/tomcat/tomcat-9/v9.0.60/bin/apache-tomcat-9.0.60.zip"
-tomcat_download_location: "/tmp/apache-tomcat-9.0.60.zip "
+tomcat_download_source: "http://us.mirrors.quenda.co/apache/tomcat/tomcat-8/v8.5.56/bin/apache-tomcat-8.5.56.tar.gz "
+tomcat_download_location: "/tmp/apache-tomcat-8.5.56.tar.gz "
 tomcat_install_path: "/opt/tomcat "
