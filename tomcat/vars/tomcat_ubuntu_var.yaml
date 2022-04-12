@@ -1,4 +1,4 @@
 ---
-tomcat_download_source: "https://archive.apache.org/dist/tomcat/tomcat-10/v10.0.8/bin/apache-tomcat-10.0.8.tar.gz"
-tomcat_download_location: "/tmp/apache-tomcat-10.0.8.tar.gz"
+tomcat_download_source: "https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.62/bin/apache-tomcat-9.0.62-deployer.zip"
+tomcat_download_location: "/tmp/apache-tomcat-9.0.62-deployer.zip"
 tomcat_install_path: "/opt/tomcat "

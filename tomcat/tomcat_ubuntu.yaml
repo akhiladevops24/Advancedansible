@@ -43,7 +43,7 @@
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: Create link
       file:
-        src: /opt/tomcat/apache-tomcat-10.0.8.tar.gz
+        src: /opt/tomcat/apache-tomcat-9.0.62-deployer.zip
         dest: /opt/tomcat/latest
         owner: "{{ username }}"
         group: "{{ username }}"
