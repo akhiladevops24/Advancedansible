@@ -38,17 +38,12 @@
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: extract tomcat
       unarchive:
-        
         src: "{{ tomcat_download_location }}"
-        remote_src: yes
         dest: "{{ tomcat_install_path }}"
       when: ansible_facts['distribution'] == "Ubuntu"
-      notify:
-        - Create link
-  handlers:
     - name: Create link
       file:
-        src: /opt/tomcat/apache-tomcat-9.0.60
+        src: /opt/tomcat/apache-tomcat-8.5.61
         dest: /opt/tomcat/latest
         owner: "{{ username }}"
         group: "{{ username }}"
